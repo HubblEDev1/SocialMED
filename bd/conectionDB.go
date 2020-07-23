@@ -1,18 +1,16 @@
-package db
+package bd
 
 import (
     "context"
     "log"
-
-    "go.mongo.org/mongo-driver/mongo"
-    "go.mongo.org/mongo-driver/mongo/options"
+    "go.mongodb.org/mongo-driver/mongo"
+    "go.mongodb.org/mongo-driver/mongo/options"
 )
 //Las variables con mayuscula indican que son exportadas
 var MongoCN=ConnectDB()
-var clientOptions=options.Client().ApplyURI("mongodb+srv://Edwin:<Im183.ed>@socialmed.jgug0.mongodb.net/<dbname>?retryWrites=true&w=majority
-")
+var clientOptions=options.Client().ApplyURI("mongodb+srv://Edwin:Im183.ed@socialmed.jgug0.mongodb.net/<dbname>?retryWrites=true&w=majority")
 
-func ConectarDB() *mongo.Client {
+func ConnectDB() *mongo.Client {
 	client, err := mongo.Connect(context.TODO(), clientOptions)
 	if err != nil {
 		log.Fatal(err.Error())
@@ -27,7 +25,7 @@ func ConectarDB() *mongo.Client {
 	return client
 }
 
-func CheckConnection()bool{
+func CheckConnection()int{
 	err:=MongoCN.Ping(context.TODO(),nil)
 	if err != nil {
 		return 0
