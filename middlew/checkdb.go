@@ -1,4 +1,4 @@
-package checkdb
+package middlew
 
 import (
 	"net/http"

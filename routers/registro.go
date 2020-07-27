@@ -6,7 +6,7 @@ import (
 	"github.com/edwin1732/SocialMED/bd"
 	"github.com/edwin1732/SocialMED/models"
 )
-
+//Funcion para crear en la base de datos el registro de usuario
 func Registro(w http.ResponseWriter, r *http.Request){
 	var t models.User
 	err:=json.NewDecoder(r.Body).Decode(&t)
@@ -23,12 +23,12 @@ func Registro(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	_, found, _ := bd.validateUser(t.Email) //Válida que no existan usuarios repetidos
+	_, found, _ := bd.UserIndatabase(t.Email) //Válida que no existan usuarios repetidos
 	if found==true {
 		http.Error(w,"El Email ya existe en la Base de datos",400)
 		return
 	}
-	_, status, err:=bd.insertRegister(t)
+	_, status, err:=bd.InsertRegister(t)
 	if err!=nil {
 		http.Error(w,"Ocurrió un error al realizar el registro"+err.Error(),400)
 		return
@@ -39,6 +39,6 @@ func Registro(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	w.WriteHeader(http.statusCreated)
+	w.WriteHeader(http.StatusCreated)
 	
 }
