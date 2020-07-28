@@ -14,6 +14,8 @@ func Manager(){
 	router := mux.NewRouter()
 
 	router.HandleFunc("/registro", middlew.CheckDB(routers.Registro)).Methods("POST") //Endpoint
+	router.HandleFunc("/login", middlew.CheckDB(routers.Login)).Methods("POST") //Endpoint
+	
 	PORT := os.Getenv("PORT")
 	if PORT==""{
 		PORT="8080"

@@ -23,7 +23,7 @@ $ heroku git:remote -a mysocialmed
 
 ***********Base de datos de Mongo****************
 Mongo es una base de datos nosql
-****************************************************Cadena de conecion a bas de datos mongo*****************************************************************************************************
+****************************************************Cadena de conexion a bas de datos mongo*****************************************************************************************************
 mongodb+srv://Edwin:<password>@socialmed.jgug0.mongodb.net/<dbname>?retryWrites=true&w=majority
 *************************************Cadena de conexion compass Mongo***************************************************
 mongodb+srv://Edwin:<password>@socialmed.jgug0.mongodb.net/test
@@ -44,3 +44,6 @@ go get golang.org/x/crypto/bcrypt
 go get github.com/gorilla/mux   
 go get github.com/rs/cors Nos permite otorgar permisos a nuestra API para ser accedida remotamente
 go get github.com/dgrijalva/jwt-go
+
+************************************Link API Heroku*******************************
+ https://mysocialmed.herokuapp.com/
